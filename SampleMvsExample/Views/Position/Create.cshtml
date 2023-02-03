@@ -1,0 +1,18 @@
+﻿@model Position
+
+@{
+    ViewData["Title"] = "New position creation";
+}
+
+
+<div class="container">
+    <form class="form-group" asp-controller="Position" asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="Title">Title</label>
+            <input name="Title" placeholder="My Title" />
+        </div>
+        <div class="form-group">
+            <<input class="btn btn-link" type="submit" value="Save" />
+        </div>
+    </form>
+</div>

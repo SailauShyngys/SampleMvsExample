@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SampleMvsExample.Models.Position>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1></h1>
+
+<div class="container">
+    <h2>List of user</h2>
+
+    <a class="btn btn-link" asp-controller="Position" asp-action="Create">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <th>@user.id</th>
+                    <td>@user.Title</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@user.id"> Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@user.id"> Delete</a>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>

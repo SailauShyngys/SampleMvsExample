@@ -1,0 +1,41 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Users";
+}
+<div class="container">
+    <h2>List of users</h2>
+    <a class="btn btn-link" asp-controller="User" asp-action="Create">Create new user</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Position</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.id</td>
+                    <td>@user.Name</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Position?.Title</td>
+                    <td>
+                        <a class="btn btn-link" asp-controller="User" asp-action="Edit" asp-route-id="@user.id">Edit</a>
+                        <a class="btn btn-link" asp-controller="User" asp-action="Delete"asp-route-id="@user.id">Delete</a>
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    @foreach (var user in Model)
+    {
+
+    }
+</div>
